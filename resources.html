@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — AwareParents</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Resources-specific styles ── */
+    .resources-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2.5rem 2rem;
+    }
+    .resources-section + .resources-section {
+      padding-top: 0;
+    }
+
+    .resource-category {
+      margin-bottom: 3.5rem;
+    }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 2px solid rgba(26,26,46,0.08);
+    }
+    .category-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+    .category-header h2 {
+      font-family: var(--ff-head);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .resource-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .resource-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      background: var(--white);
+      border: 1px solid rgba(26,26,46,0.08);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: var(--ink);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+    .resource-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 8px 32px rgba(26,26,46,0.13);
+      border-color: var(--accent);
+    }
+    .resource-card-body {
+      flex: 1;
+    }
+    .resource-card-title {
+      font-family: var(--ff-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .resource-tag {
+      font-family: var(--ff-body);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--warm);
+      color: var(--accent);
+      border: 1px solid rgba(196,98,45,0.25);
+      border-radius: 100px;
+      padding: 0.18em 0.7em;
+    }
+    .resource-card-desc {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .resource-arrow {
+      font-size: 1.1rem;
+      color: var(--accent);
+      opacity: 0.6;
+      align-self: center;
+      transition: opacity var(--transition), transform var(--transition);
+      flex-shrink: 0;
+    }
+    .resource-card:hover .resource-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    /* Hotline cards — slightly different style */
+    .hotline-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .hotline-card {
+      background: var(--ink);
+      color: var(--cream);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .hotline-card .hc-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.85;
+    }
+    .hotline-card .hc-name {
+      font-family: var(--ff-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .hotline-card .hc-number {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-top: 0.2rem;
+    }
+    .hotline-card .hc-desc {
+      font-size: 0.82rem;
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
+    .disclaimer {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      padding: 0 2.5rem;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+      opacity: 0.65;
+      border-top: 1px solid rgba(26,26,46,0.08);
+      padding-top: 2rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .hotline-grid { grid-template-columns: 1fr; }
+      .resources-section { padding: 3rem 1.4rem 1.5rem; }
+    }
+  </style>
+</head>
+<body class="inner-page">
+
+  <header class="site-header">
+    <a href="index.html" class="logo">Aware<span>Parents</span></a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="nav-overlay" id="navOverlay">
+    <button class="nav-close" id="navClose" aria-label="Close menu">&#10005;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="mental-health.html">Mental Health</a></li>
+      <li><a href="screen-time.html">Screen Time</a></li>
+      <li><a href="cyberbullying.html">Cyberbullying</a></li>
+      <li><a href="privacy-predators.html">Privacy &amp; Predators</a></li>
+      <li><a href="healthy-habits.html">Healthy Habits</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+    </ul>
+    <p class="nav-tagline">Knowledge protects.<br>Stay informed.</p>
+  </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <!-- HERO -->
+  <section class="inner-hero">
+    <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; Resources</div>
+    <h1>Trusted Resources<br>for Informed Parents</h1>
+    <p class="sub">A curated collection of organisations, tools, hotlines, and reading material to help you go deeper on every topic covered on this site.</p>
+  </section>
+
+  <!-- CRISIS & HOTLINES -->
+  <section class="resources-section">
+    <div class="resource-category">
+      <div class="category-header">
+        <span class="category-icon">&#128222;</span>
+        <h2>Crisis Lines &amp; Immediate Help</h2>
+      </div>
+      <div class="hotline-grid">
+        <div class="hotline-card">
+          <span class="hc-label">Mental Health Crisis</span>
+          <span class="hc-name">988 Suicide &amp; Crisis Lifeline</span>
+          <span class="hc-number">Call or text 988</span>
+          <span class="hc-desc">Free, confidential support for people in distress, 24/7. Also available at 988lifeline.org</span>
+        </div>
+        <div class="hotline-card">
+          <span class="hc-label">Online Safety Emergency</span>
+          <span class="hc-name">NCMEC CyberTipline</span>
+          <span class="hc-number">1-800-843-5678</span>
+          <span class="hc-desc">Report online enticement, child exploitation, or suspected grooming to the National Center for Missing &amp; Exploited Children.</span>
+        </div>
+        <div class="hotline-card">
+          <span class="hc-label">Bullying &amp; Harassment</span>
+          <span class="hc-name">Crisis Text Line</span>
+          <span class="hc-number">Text HOME to 741741</span>
+          <span class="hc-desc">Free 24/7 text-based mental health support for teens experiencing bullying, anxiety, or emotional distress.</span>
+        </div>
+        <div class="hotline-card">
+          <span class="hc-label">Eating Disorders</span>
+          <span class="hc-name">ANAD Helpline</span>
+          <span class="hc-number">1-888-375-7767</span>
+          <span class="hc-desc">The National Alliance for Eating Disorders helpline, for families concerned about social media's impact on body image.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTAL HEALTH -->
+  <section class="resources-section">
+    <div class="resource-category">
+      <div class="category-header">
+        <span class="category-icon">&#129504;</span>
+        <h2>Mental Health &amp; Wellbeing</h2>
+      </div>
+      <div class="resource-list">
+
+        <a href="https://www.apa.org/topics/social-media-internet" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              American Psychological Association — Social Media Hub
+              <span class="resource-tag">Research</span>
+            </div>
+            <p class="resource-card-desc">The APA's dedicated collection of research, articles, and guidance on social media's psychological effects on children and teenagers.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://childmind.org/topics/technology-and-social-media/" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              Child Mind Institute — Technology &amp; Social Media
+              <span class="resource-tag">Parent Guide</span>
+            </div>
+            <p class="resource-card-desc">Practical, clinician-authored articles on anxiety, depression, and how digital life affects child and adolescent development.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.commonsensemedia.org/articles/social-media" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              Common Sense Media — Social Media Guides
+              <span class="resource-tag">Parent Tool</span>
+            </div>
+            <p class="resource-card-desc">Age-based guidance on apps, platforms, and research-backed strategies for managing your child's social media use.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.anxietyanddepressionassociation.org" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              ADAA — Anxiety &amp; Depression Association of America
+              <span class="resource-tag">Organisation</span>
+            </div>
+            <p class="resource-card-desc">Find therapists, access screening tools, and read research on anxiety and depression in adolescents linked to social media use.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREEN TIME -->
+  <section class="resources-section">
+    <div class="resource-category">
+      <div class="category-header">
+        <span class="category-icon">&#9200;</span>
+        <h2>Screen Time &amp; Digital Wellbeing</h2>
+      </div>
+      <div class="resource-list">
+
+        <a href="https://www.aap.org/en/patient-care/media-and-children/" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              American Academy of Pediatrics — Media &amp; Children
+              <span class="resource-tag">Medical Guidance</span>
+            </div>
+            <p class="resource-card-desc">Official AAP guidelines on screen time by age, with tools like the Family Media Plan to help create household agreements.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.healthychildren.org/English/family-life/Media/Pages/default.aspx" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              HealthyChildren.org — Media &amp; Technology
+              <span class="resource-tag">Parent Resource</span>
+            </div>
+            <p class="resource-card-desc">The AAP's parent-facing site with practical guides on managing screen time, gaming, and social media at every developmental stage.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.sleepfoundation.org/teens-and-sleep/technology-and-teen-sleep" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              Sleep Foundation — Technology &amp; Teen Sleep
+              <span class="resource-tag">Research</span>
+            </div>
+            <p class="resource-card-desc">Evidence-based guidance on how devices and social media disrupt adolescent sleep cycles, and what to do about it.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CYBERBULLYING -->
+  <section class="resources-section">
+    <div class="resource-category">
+      <div class="category-header">
+        <span class="category-icon">&#128245;</span>
+        <h2>Cyberbullying</h2>
+      </div>
+      <div class="resource-list">
+
+        <a href="https://www.stopbullying.gov/cyberbullying" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              StopBullying.gov — Cyberbullying
+              <span class="resource-tag">Government</span>
+            </div>
+            <p class="resource-card-desc">The U.S. federal resource for understanding, preventing, and responding to cyberbullying, with state law references and reporting guidance.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://cyberbullying.org" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              Cyberbullying Research Center
+              <span class="resource-tag">Research</span>
+            </div>
+            <p class="resource-card-desc">Academic research, statistics, and up-to-date platform-specific guides for parents on how cyberbullying manifests on each social network.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.pacer.org/bullying/resources/cyberbullying/" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              PACER's National Bullying Prevention Center
+              <span class="resource-tag">Advocacy</span>
+            </div>
+            <p class="resource-card-desc">Resources for parents, educators, and students including action plans, downloadable toolkits, and age-specific prevention guides.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY & SAFETY -->
+  <section class="resources-section">
+    <div class="resource-category">
+      <div class="category-header">
+        <span class="category-icon">&#128274;</span>
+        <h2>Privacy, Safety &amp; Online Predators</h2>
+      </div>
+      <div class="resource-list">
+
+        <a href="https://www.missingkids.org/gethelpnow/cybertipline" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              NCMEC CyberTipline
+              <span class="resource-tag">Report Abuse</span>
+            </div>
+            <p class="resource-card-desc">The National Center for Missing &amp; Exploited Children's online reporting tool for child sexual exploitation, grooming, and predatory contact.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.fbi.gov/how-we-can-help-you/parents-and-caregivers-can-protect-their-kids/online-safety" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              FBI — Online Safety for Parents &amp; Caregivers
+              <span class="resource-tag">Government</span>
+            </div>
+            <p class="resource-card-desc">The FBI's guidance on protecting children from online predators, with red flags to watch for and instructions for reporting suspicious contact.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.internetmatters.org" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              Internet Matters
+              <span class="resource-tag">Parent Tool</span>
+            </div>
+            <p class="resource-card-desc">Step-by-step privacy setting guides for every major platform and device, updated regularly as apps change their interfaces.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.connectsafely.org/parents/" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              ConnectSafely — Parent Guides
+              <span class="resource-tag">Parent Tool</span>
+            </div>
+            <p class="resource-card-desc">Free, concise guides to every major social platform — including privacy tips, age recommendations, and what teens actually do on each app.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS & FURTHER READING -->
+  <section class="resources-section">
+    <div class="resource-category">
+      <div class="category-header">
+        <span class="category-icon">&#128218;</span>
+        <h2>Books &amp; Further Reading</h2>
+      </div>
+      <div class="resource-list">
+
+        <a href="https://www.anxiousgeneration.com" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              <em>The Anxious Generation</em> — Jonathan Haidt
+              <span class="resource-tag">Book</span>
+            </div>
+            <p class="resource-card-desc">A landmark 2024 examination of how the smartphone and social media rewired childhood, with specific policy and parenting recommendations.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://americangirlbook.com/itsComplicated" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              <em>It's Complicated</em> — danah boyd
+              <span class="resource-tag">Book</span>
+            </div>
+            <p class="resource-card-desc">Based on years of ethnographic research with American teenagers, this book challenges moral panics while illuminating the real social dynamics of teen online life.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.screenageamovie.com" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              <em>Screenagers</em> — Documentary Film
+              <span class="resource-tag">Film</span>
+            </div>
+            <p class="resource-card-desc">A widely screened documentary exploring the impact of screen time and social media on adolescent development, designed to spark family conversations.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+        <a href="https://www.commonsensemedia.org/research" target="_blank" rel="noopener" class="resource-card">
+          <div class="resource-card-body">
+            <div class="resource-card-title">
+              Common Sense Media Research Library
+              <span class="resource-tag">Research</span>
+            </div>
+            <p class="resource-card-desc">Freely accessible annual reports on children's media use, including the definitive survey on teen social media habits and its impacts.</p>
+          </div>
+          <span class="resource-arrow">&#8599;</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <p class="disclaimer">
+    AwareParents is an independent educational resource. We do not endorse any specific products or services. All external links were verified at time of publication and are provided for informational purposes only. In a crisis, always contact emergency services or a qualified mental health professional.
+  </p>
+
+  <nav class="page-nav">
+    <a href="healthy-habits.html">&larr; Healthy Habits</a>
+    <a href="index.html" class="back-home">Back to Home &rarr;</a>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="index.html" class="logo">Aware<span>Parents</span></a>
+      <nav class="footer-nav">
+        <a href="mental-health.html">Mental Health</a>
+        <a href="screen-time.html">Screen Time</a>
+        <a href="cyberbullying.html">Cyberbullying</a>
+        <a href="privacy-predators.html">Privacy &amp; Predators</a>
+        <a href="healthy-habits.html">Healthy Habits</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+      <p class="footer-copy">&copy; 2025 AwareParents. An educational resource.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

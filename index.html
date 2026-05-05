@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aware Parents — Social Media & Teen Safety</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="home-page">
+
+  <!-- NAV -->
+  <header class="site-header">
+    <a href="index.html" class="logo">Aware<span>Parents</span></a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- HAMBURGER MENU OVERLAY -->
+  <nav class="nav-overlay" id="navOverlay">
+    <button class="nav-close" id="navClose" aria-label="Close menu">&#10005;</button>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="mental-health.html">Mental Health</a></li>
+      <li><a href="screen-time.html">Screen Time</a></li>
+      <li><a href="cyberbullying.html">Cyberbullying</a></li>
+      <li><a href="privacy-predators.html">Privacy & Predators</a></li>
+      <li><a href="healthy-habits.html">Healthy Habits</a></li>
+      <li><a href="resources.html">Resources</a></li>
+    </ul>
+    <p class="nav-tagline">Knowledge protects.<br>Stay informed.</p>
+  </nav>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <span class="hero-label">A Resource for Parents</span>
+      <h1>Your teen is online.<br><em>Are you ready?</em></h1>
+      <p class="hero-sub">Social media shapes how adolescents think, feel, and connect. The more you know, the better you can protect them — and talk with them.</p>
+      <a href="#topics" class="btn-primary">Explore the Issues</a>
+    </div>
+    <div class="hero-stat-group">
+      <div class="stat-card">
+        <span class="stat-num">95<sup>%</sup></span>
+        <span class="stat-desc">of teens have access to a smartphone</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">8<sup>hrs</sup></span>
+        <span class="stat-desc">average daily screen time for teens</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">40<sup>%</sup></span>
+        <span class="stat-desc">report feeling worse about themselves after social media use</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO BAND -->
+  <section class="intro-band">
+    <div class="intro-inner">
+      <h2>Why Parents Need to Know</h2>
+      <p>The digital world your teenager inhabits is radically different from anything previous generations experienced. Platforms are engineered for engagement — not wellbeing. Understanding the real risks is the first step toward meaningful conversation and healthier boundaries.</p>
+    </div>
+  </section>
+
+  <!-- TOPIC CARDS -->
+  <section class="topics" id="topics">
+    <div class="section-label">Five Areas to Understand</div>
+    <div class="topics-grid">
+
+      <a href="mental-health.html" class="topic-card" data-index="01">
+        <div class="topic-icon">&#129504;</div>
+        <h3>Mental Health</h3>
+        <p>How social media contributes to anxiety, depression, and low self-esteem in adolescents.</p>
+        <span class="topic-cta">Read more &rarr;</span>
+      </a>
+
+      <a href="screen-time.html" class="topic-card" data-index="02">
+        <div class="topic-icon">&#9200;</div>
+        <h3>Screen Time</h3>
+        <p>The effects of excessive device use on sleep, focus, and academic performance.</p>
+        <span class="topic-cta">Read more &rarr;</span>
+      </a>
+
+      <a href="cyberbullying.html" class="topic-card" data-index="03">
+        <div class="topic-icon">&#128245;</div>
+        <h3>Cyberbullying</h3>
+        <p>Recognising the signs of online harassment — and what you can do about it.</p>
+        <span class="topic-cta">Read more &rarr;</span>
+      </a>
+
+      <a href="privacy-predators.html" class="topic-card" data-index="04">
+        <div class="topic-icon">&#128274;</div>
+        <h3>Privacy &amp; Predators</h3>
+        <p>Understanding data collection, grooming tactics, and how to keep your child safer.</p>
+        <span class="topic-cta">Read more &rarr;</span>
+      </a>
+
+      <a href="healthy-habits.html" class="topic-card" data-index="05">
+        <div class="topic-icon">&#127807;</div>
+        <h3>Healthy Habits</h3>
+        <p>Practical strategies for balanced digital life and productive conversations with your teen.</p>
+        <span class="topic-cta">Read more &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- QUOTE BAND -->
+  <section class="quote-band">
+    <blockquote>
+      "The best thing parents can do is stay curious, not judgmental — and informed enough to ask the right questions."
+      <cite>— Child Development Research</cite>
+    </blockquote>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="index.html" class="logo">Aware<span>Parents</span></a>
+      <nav class="footer-nav">
+        <a href="mental-health.html">Mental Health</a>
+        <a href="screen-time.html">Screen Time</a>
+        <a href="cyberbullying.html">Cyberbullying</a>
+        <a href="privacy-predators.html">Privacy &amp; Predators</a>
+        <a href="healthy-habits.html">Healthy Habits</a>
+        <a href="resources.html">Resources</a>
+      </nav>
+      <p class="footer-copy">&copy; 2025 AwareParents. An educational resource.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
