@@ -601,6 +601,44 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ===================================================
+   CITATIONS / REFERENCES
+   =================================================== */
+.citations {
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(26,26,46,0.10);
+}
+.citations h2 {
+  font-family: var(--ff-head);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.2rem !important;
+  margin-top: 0 !important;
+}
+.citation-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.citation-list li {
+  font-size: 0.84rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  padding-left: 2em;
+  text-indent: -2em;
+}
+.citation-list a {
+  color: var(--accent2);
+  word-break: break-all;
+  text-decoration: underline;
+  text-decoration-color: rgba(45,110,142,0.35);
+  transition: color var(--transition);
+}
+.citation-list a:hover { color: var(--accent); }
+
+/* ===================================================
    RESPONSIVE
    =================================================== */
 @media (max-width: 900px) {
